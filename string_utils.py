@@ -1,23 +1,30 @@
 def split_before_each_uppercases(formula):
-    start = 1
+    if not formula:
+        return []
+
     splitted_formula = []
-    for i in range(1, len(formula)):  # מתחילים מהתו השני
+    start = 0
+
+    for i in range(1, len(formula)):
         if formula[i].isupper():
             splitted_formula.append(formula[start:i])
             start = i
+
     splitted_formula.append(formula[start:])
     return splitted_formula
 
 
-
 def split_at_first_digit(formula):
-    digit_location = len(formula)
+    if not formula:
+        return "", 1
+
     for i, ch in enumerate(formula):
         if ch.isdigit():
-            digit_location = i
-            break
-    if digit_location == len(formula):
-        return formula, 1
-    prefix = formula[:digit_location]
-    number_part = int(formula[digit_location:])
-    return prefix, number_part
+            j = i
+            while j < len(formula) and formula[j].isdigit():
+                j += 1
+            prefix = formula[:i]
+            number_part = int(formula[i:j])
+            return prefix, number_part
+
+    return formula, 1
