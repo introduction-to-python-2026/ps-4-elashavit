@@ -1,12 +1,12 @@
 def split_before_each_uppercases(formula):
-   start = 0
-   splitted_formula = []
-   for i in range(len(formula)):
-       if formula[i].isupper():
-           splitted_formula.append(formula[start:i])
-           start = i
-   splitted_formula.append(formula[start:])
-   return splitted_formula
+    start = 0
+    splitted_formula = []
+    for i in range(1, len(formula)):  # מתחילים מהתו השני
+        if formula[i].isupper():
+            splitted_formula.append(formula[start:i])
+            start = i
+    splitted_formula.append(formula[start:])
+    return splitted_formula
 
 
 
