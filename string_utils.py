@@ -11,16 +11,13 @@ def split_before_each_uppercases(formula):
 
 
 def split_at_first_digit(formula):
-    digit_location = 1
-
-    for ch in formula[1:]:
+    digit_location = len(formula)
+    for i, ch in enumerate(formula):
         if ch.isdigit():
+            digit_location = i
             break
-        digit_location += 1
-    
     if digit_location == len(formula):
         return formula, 1
-
     prefix = formula[:digit_location]
     number_part = int(formula[digit_location:])
     return prefix, number_part
