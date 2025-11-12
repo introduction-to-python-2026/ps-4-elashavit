@@ -1,5 +1,5 @@
 def split_before_each_uppercases(formula):
-    start = 0
+    start = 1
     splitted_formula = []
     for i in range(1, len(formula)):  # מתחילים מהתו השני
         if formula[i].isupper():
